@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button with Sound</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('103.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button {
+            background-color: #cc5fff;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            padding: 20px 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            background-color: #d06ffd;
+        }
+
+        .button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="button" id="soundButton">CRINGE</button>
+    </div>
+
+    <audio id="buttonSound" src="102.mp3"></audio>
+
+    <script>
+        document.getElementById('soundButton').addEventListener('click', () => {
+            const sound = document.getElementById('buttonSound');
+            sound.currentTime = 0; // Сбрасываем звук, чтобы он играл заново при каждом нажатии
+            sound.play();
+        });
+    </script>
+</body>
+</html>
